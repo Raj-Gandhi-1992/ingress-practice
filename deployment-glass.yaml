@@ -1,26 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-rolling-update
-  annotations:
-   kubernetes.io/change-cause: "webserver upgarde"
+  name: deploy-glass
 spec:
-  replicas: {{ .Values.replicano }}
+  replicas: 3
   selector:
     matchLabels:
-      app: web
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 25%
+      app: web-glass
   template:
     metadata:
       labels:
-       app: web
+       app: web-glass
     spec:
       containers:
-        - name: web-server-1
-          image: {{ .Values.image.repo }}:{{ .Values.image.tag }}
+        - name: web-server-glass
+          image: rajgandhi123/css-repo:glass
           ports:
             - containerPort: 80

@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alb-Ingress
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  rules:
+    - host: rajkosh.icu
+      http:
+        paths:
+          - path: /glass
+            pathType: Prefix
+            backend:
+              service:
+                name: glass-service
+                port:
+                  number: 80
+          - path: /cover
+            pathType: Prefix
+            backend:
+              service:
+                name: cover-service
+                port:
+                  number: 80

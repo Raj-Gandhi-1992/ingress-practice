@@ -8,7 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
 spec:
   rules:
-    - host: rajkosh.icu
+    - host: apps.rajkosh.icu
       http:
         paths:
           - path: /glass

@@ -8,7 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
 spec:
   rules:
-    - host: apps.rajkosh.icu
+    - host: glass.rajkosh.icu
       http:
         paths:
           - path: /
@@ -18,7 +18,10 @@ spec:
                 name: glass-service
                 port:
                   number: 80
-          - path: /cover
+    - host: cover.rajkosh.icu
+      http:
+        paths:
+          - path: /
             pathType: Prefix
             backend:
               service:

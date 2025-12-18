@@ -11,7 +11,7 @@ spec:
     - host: apps.rajkosh.icu
       http:
         paths:
-          - path: /glass
+          - path: /
             pathType: Prefix
             backend:
               service:
